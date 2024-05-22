@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>Pokedex</title>
+</head>
+<body>
+    <header class="bg-pokemon-blue">
+        <nav class="navbar navbar-light">
+            <div class="container-fluid justify-content-between">
+              <div class="navbar-brand col-xl-1 col-sm-2 col-3">
+                <img id="poke-logo" src="./assets/images/Pokémon_logo.png" class="img-fluid" alt="pokemon title logo"/>
+              </div>
+              <div class="d-none d-xl-block col-1 text-end">
+                <img src="./assets/images/pokeball-png-45330.png" class="w-50 img-fluid" alt="poke ball image"/>
+              </div>
+              <div>
+                <form action="./pages/pokemon.html" class="d-flex" id="search-container">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="search-btn" class="btn border-2 btn-outline-light" type="button">Search</button>
+                </form>
+                <div class="loading-wheel text-center mt-3 d-none">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="sr-only"></span>
+                    </div>  
+                </div>
+                <p class="m-0 text-danger error-msg"></p>
+              </div>
+              <div class="view-history-btn-container d-md-none w-100 my-3">
+                <button class="btn border-2 btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    View History
+                  </button>
+              </div>
+              <ul class="history-list collapse card-body d-md-none" id="collapseExample"></ul>
+            </div>
+        </nav>
+    </header>
+
+    <script src="./assets/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

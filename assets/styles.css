@@ -1,0 +1,149 @@
+a {
+  text-decoration: none !important;
+  color: #000 !important;
+}
+
+ul {
+  list-style: none;
+  padding: 0 !important;
+}
+
+#view-history li,
+.history-list li {
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+#view-history li:hover {
+  background-color: rgb(0, 0, 78);
+  color: #fff !important;
+}
+
+.history-list li:hover {
+  background-color: #fff;
+  color: #000 !important;
+}
+
+.bg-pokemon-blue {
+  background-color: rgb(0, 0, 78);
+}
+
+.border-pokemon-blue {
+  border-color: #5db9ff !important;
+}
+
+.generation-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.poke-card {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.generation-card:hover,
+.poke-card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  scale: 1.02;
+}
+
+.watermark {
+  position: absolute;
+  width: 120px;
+  opacity: 0.1;
+  bottom: -40px;
+  right: -40px;
+}
+
+.generation-rep {
+  width: 80px;
+}
+
+/* background color for different pokemon types */
+.grass {
+  background-color: #9bcc50;
+}
+
+.poison {
+  background-color: #b97fc9;
+}
+
+.normal {
+  background-color: #a4acaf;
+}
+
+.flying {
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+}
+
+.bug {
+  background-color: #729f3f;
+}
+
+.electric {
+  background-color: #eed535;
+}
+
+.water {
+  background-color: #4592c4;
+}
+
+.fighting {
+  background-color: #d56723;
+}
+
+.fire {
+  background-color: #fd7d24;
+}
+
+.psychic {
+  background-color: #f366b9;
+}
+
+.ground {
+  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+}
+
+.fairy {
+  background-color: #fdb9e9;
+}
+
+.rock {
+  background-color: #a38c21;
+}
+
+.steel {
+  background-color: #9eb7b8;
+}
+
+.dragon {
+  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+}
+
+.ice {
+  background-color: #51c4e7;
+}
+
+.ghost {
+  background-color: #7b62a3;
+}
+
+.dark {
+  background-color: #707070;
+}
+
+@media (max-width: 992px) {
+  .next {
+    rotate: 90deg;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    width: 50% !important;
+  }
+} /*# sourceMappingURL=styles.css.map */
