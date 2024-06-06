@@ -43,7 +43,7 @@ const createPokemonTag = ({ name, image, types}) => {
         spans += `<span class="py-1 px-2 mx-1 border rounded text-center text-light fw-bold fs-6 ${type}">${type}</span>`;
     })
     return `<div class="card border-0 col"><a href="./pokemon.html" class="border rounded shadow-sm poke-card bg-light">
-                    <img src="${image}" alt="${name}" class="card-img-top">
+                    <img src="${image}" alt="${name}" class="card-img-top" loading="lazy">
                     <div class="text-center mt-3">
                         <h4 class="mb-4">${name.replace(name[0], name[0].toUpperCase())}</h4>
                         <p class="lead d-flex flex-column align-items-center d-sm-block">
