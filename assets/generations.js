@@ -29,24 +29,26 @@ const getPokemonInfo = async (pokemonName) => {
         })
         
         const pokemon = new Pokemon(pokemonName, pokeImageUrl, types, stats);
+        pokemonObjects[pokemonName] = pokemon;
         return pokemon;
     } catch (err) {
         console.error("Error: ", err.message)
     }
 }
 
-// function to create the pokemon card that will be listed on the generation listing page
+// function to create the pokemon cards that will be displayed on the generation listing page
 
 const createPokemonTag = ({ name, image, types}) => {
     let spans = "";
     types.forEach(type => {
-        spans += `<span class="py-1 px-2 mx-1 border rounded text-center text-light fw-bold fs-6 ${type}">${type}</span>`;
+        spans += `<span class="${name} py-1 px-2 mx-1 border rounded text-center text-light fw-bold fs-6 ${type}">${type}</span>`;
     })
-    return `<div class="card border-0 col"><a href="./pokemon.html" class="border rounded shadow-sm poke-card bg-light">
+    return `<div class="${name} card border-0 col">
+                <a href="./pokemon.html" class="${name} border rounded shadow-sm poke-card bg-light">
                     <img src="${image}" alt="${name}" class="card-img-top" loading="lazy">
-                    <div class="text-center mt-3">
+                    <div class="${name} text-center mt-3">
                         <h4 class="mb-4">${name.replace(name[0], name[0].toUpperCase())}</h4>
-                        <p class="lead d-flex flex-column align-items-center d-sm-block">
+                        <p class="${name} lead d-flex flex-column align-items-center d-sm-block">
                             ${spans}
                         </p>
                     </div>
@@ -89,7 +91,31 @@ const printGeneration = async (generationNumber) => {
     
 }
 
+// function that saves the pokemon's information that was clicked
+
+const savePokeInfo = (event) => {
+    const target = event.target;
+    let pokemonName;
+    switch(target.tagName) {
+        case 'IMG': 
+            pokemonName = target.alt;
+            break;
+        
+        case 'H4': 
+            pokemonName = target.textContent.toLowerCase();
+            break;
+        
+        default: {
+            pokemonName = target.classList[0];
+        }
+    }
+    const pokeObj = pokemonObjects[pokemonName]
+    if(pokeObj) localStorage.setItem('pokemon', JSON.stringify(pokeObj));
+}
+
+const pokemonObjects = {};
 const heading = document.getElementById('generation-heading');
-heading.textContent = `Generation ${localStorage.getItem('generation')}`
 const generationNumber = localStorage.getItem('generation');
+heading.textContent = `Generation ${localStorage.getItem('generation')}`
+document.querySelector('#pokemon-list').addEventListener("click", savePokeInfo)
 printGeneration(generationNumber)
