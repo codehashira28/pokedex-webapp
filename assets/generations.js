@@ -1,40 +1,4 @@
-class Pokemon {
-    constructor(name, image, types, stats) {
-        this.name = name;
-        this.image = image;
-        this.types = types;
-        this.stats = stats;
-    }
-}
-
-// function to get a pokemon's image, types, and stats and returns them in a pokemon object
-
-const getPokemonInfo = async (pokemonName) => {
-    try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`)
-        const data = await response.json();
-
-            // get pokemon image url
-        const imageType = 'official-artwork';
-        const pokeImageUrl = data.sprites.other[imageType].front_default;
-
-            // get pokemon types
-        const types = data.types.map(typeObj => {
-            return typeObj.type.name;
-        })
-
-            // get pokemon stats
-        const stats = data.stats.map(statObj => {
-            return `${statObj.stat.name}: ${statObj.base_stat}`;
-        })
-        
-        const pokemon = new Pokemon(pokemonName, pokeImageUrl, types, stats);
-        pokemonObjects[pokemonName] = pokemon;
-        return pokemon;
-    } catch (err) {
-        console.error("Error: ", err.message)
-    }
-}
+import { pokemonObjects, getPokemonInfo } from "./utilities/getPokemonInfo.js";
 
 // function to create the pokemon cards that will be displayed on the generation listing page
 
@@ -113,9 +77,8 @@ const savePokeInfo = (event) => {
     if(pokeObj) localStorage.setItem('pokemon', JSON.stringify(pokeObj));
 }
 
-const pokemonObjects = {};
 const heading = document.getElementById('generation-heading');
 const generationNumber = localStorage.getItem('generation');
 heading.textContent = `Generation ${localStorage.getItem('generation')}`
 document.querySelector('#pokemon-list').addEventListener("click", savePokeInfo)
-printGeneration(generationNumber)
+printGeneration(generationNumber);
