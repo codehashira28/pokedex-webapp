@@ -1,3 +1,12 @@
+/* If browser back button was used, flush cache */
+(function () {
+	window.onpageshow = function(event) {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	};
+})();
+
 import { displayHistory } from "./utilities/displayHistory.js";
 import { getPokemonInfo } from "./utilities/getPokemonInfo.js";
 
@@ -41,13 +50,5 @@ document.querySelector('#search-btn').addEventListener("click", async () => {
         document.querySelector('.loading-wheel').classList.add('d-none');
     }
 })
-
-// code founded online to trigger a re-rendr of homepage if navigated by the browser back button to trigger render of view history when deployed
-
-var perfEntries = performance.getEntriesByType("navigation");
-
-if (perfEntries[0].type === "back_forward") {
-    location.reload();
-}
 
 displayHistory(lists);
