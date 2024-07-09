@@ -33,11 +33,21 @@ document.querySelector('#search-btn').addEventListener("click", async () => {
             form.submit();
         } else {
             document.querySelector('.error-msg').textContent = "Please enter a valid pokemon";
-            document.querySelector('.loading-wheel').classList.add('d-none')
+            
         }
     } catch(err) {
         console.error(err);
+    } finally {
+        document.querySelector('.loading-wheel').classList.add('d-none');
     }
 })
+
+// code founded online to trigger a re-rendr of homepage if navigated by the browser back button to trigger render of view history when deployed
+
+var perfEntries = performance.getEntriesByType("navigation");
+
+if (perfEntries[0].type === "back_forward") {
+    location.reload();
+}
 
 displayHistory(lists);
