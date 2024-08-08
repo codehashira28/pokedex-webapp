@@ -1,3 +1,6 @@
+body {
+  position: relative;
+}
 a {
   text-decoration: none !important;
   color: #000 !important;
@@ -6,6 +9,15 @@ a {
 ul {
   list-style: none;
   padding: 0 !important;
+}
+
+main {
+  min-height: 80vh;
+}
+
+footer > img {
+  width: 4.5%;
+  min-width: 63px;
 }
 
 #view-history li,
@@ -61,11 +73,6 @@ ul {
 
 .generation-rep {
   width: 80px;
-}
-
-footer > img {
-  width: 5%;
-  min-width: 63px;
 }
 
 /* background color for different pokemon types */
