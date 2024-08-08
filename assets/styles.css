@@ -12,7 +12,12 @@ ul {
 }
 
 main {
-  min-height: 80vh;
+  min-height: 90vh;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
 }
 
 footer > img {
