@@ -63,6 +63,11 @@ ul {
   width: 80px;
 }
 
+footer > img {
+  width: 5%;
+  min-width: 63px;
+}
+
 /* background color for different pokemon types */
 .grass {
   background-color: #9bcc50;
