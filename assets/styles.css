@@ -8,6 +8,18 @@ ul {
   padding: 0 !important;
 }
 
+header {
+  min-height: 33vh;
+}
+
+main {
+  min-height: 34vh;
+}
+
+footer {
+  min-height: 33vh;
+}
+
 footer > img {
   width: 4.5%;
   min-width: 63px;
