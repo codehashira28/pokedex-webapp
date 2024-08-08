@@ -8,10 +8,6 @@ ul {
   padding: 0 !important;
 }
 
-main {
-  min-height: 80vh;
-}
-
 footer > img {
   width: 4.5%;
   min-width: 63px;
