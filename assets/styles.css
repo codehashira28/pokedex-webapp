@@ -8,11 +8,6 @@ ul {
   padding: 0 !important;
 }
 
-footer > img {
-  width: 4.5%;
-  min-width: 63px;
-}
-
 #view-history li,
 .history-list li {
   border-radius: 3px;
